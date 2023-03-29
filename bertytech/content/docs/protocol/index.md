@@ -145,13 +145,12 @@ func rendezvousPoint(id, seed []byte, date time.Time) []byte {
 ```
 
 There are two types of rendezvous points in the Wesh protocol:
-
-* [**Public rendezvous point:**](#contact-request) This rendezvous point is
+* [**Public rendezvous point:**]({{< ref "#contact-request" >}}) This rendezvous point is
 used by an account to receive contact requests. The resource ID used here is
 the Account ID and the seed can be renewed at will by the user, so it is
 possible to revoke the ability to send contact requests to users having only
 the previous seed.
-* [**Group rendezvous point:**](#invitation) This rendezvous point is used to
+* [**Group rendezvous point:**]({{< relref "#invitation" >}}) This rendezvous point is used to
 exchange messages within a group. The resource ID used here is the Group ID,
 and the seed cannot be changed.
 
@@ -167,7 +166,7 @@ is sending its rendezvous point list to the peers it connects to via a direct
 transport. The advantage is that it works in this particular case with almost
 instantaneous results, but the disadvantage is that it raises privacy
 concerns. We are still working on this process to improve this point.
-More info in [Specificities of direct transport](#specificities-of-direct-transport)
+More info in [Specificities of direct transport]({{< relref "/docs/protocol/index.md#specificities-of-direct-transport" >}})
 section.
 
 ### Direct Transport
