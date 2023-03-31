@@ -1,0 +1,27 @@
+version: '2'
+services:
+  hugo:
+    image: klakegg/hugo:0.91.2
+    command: server
+    volumes:
+      - ./:/src
+      - ./data/blog/output/:/output
+    environment:
+      - HUGO_REFRESH_TIME=3600
+      - HUGO_BASEURL=https://hoa.ro/
+    restart: always
+    network_mode: bridge
+
+  web:
+    image: jojomi/nginx-static
+    volumes:
+      - ./data/blog/output:/var/www
+    environment:
+      - VIRTUAL_HOST=hoa.ro
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=hoa.ro
+      - LETSENCRYPT_EMAIL=arthur@hoa.ro
+    ports:
+      - 80
+    network_mode: bridge
+    restart: always
